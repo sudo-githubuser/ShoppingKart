@@ -1,9 +1,19 @@
 package managers;
 
+import dataProvider.ConfigFileReader;
+
 public class FileReaderManager {
 	
-	public void sampleMethod() {
-		System.out.println("To test Github pull request");
-		System.out.println("Second Test");
+	private static FileReaderManager fileReaderManager = new FileReaderManager();
+	private static ConfigFileReader configFileReader;
+	
+	private FileReaderManager() {}
+	
+	public static FileReaderManager getInstance() {
+		return fileReaderManager;
+	}
+	
+	public ConfigFileReader getConfigReader() {
+		return (configFileReader == null) ? new ConfigFileReader() : configFileReader;
 	}
 }
