@@ -23,5 +23,41 @@ public class CreateAccount {
     @FindBy(how = How.XPATH, using = ei.firstName)
     private WebElement firstName;
 
+    @FindBy(how = How.XPATH, using = ei.lastName)
+    private WebElement lastName;
 
+    @FindBy(how = How.XPATH, using = ei.email)
+    private WebElement email;
+
+    @FindBy(how = How.XPATH, using = ei.password)
+    private WebElement password;
+
+    @FindBy(how = How.XPATH, using = ei.confirmPassword)
+    private WebElement confirmPassword;
+
+    @FindBy(how = How.XPATH, using = ei.submit)
+    private WebElement submit;
+
+    public void createAccount(){
+        createAccount.click();
+    }
+
+    public void enterFirstName(String fName) {
+        firstName.sendKeys(fName);
+    }
+    public void enterLastName(String lName){
+        lastName.sendKeys(lName);
+    }
+    public void enterEmail(String emailID){
+        email.sendKeys(emailID);
+    }
+    public void enterPassword(String pwd){
+        password.sendKeys(pwd);
+    }
+    public void enterConfirmPassword(String cPwd){
+        confirmPassword.sendKeys(cPwd);
+    }
+    public void submit(){
+        submit.click();
+    }
 }

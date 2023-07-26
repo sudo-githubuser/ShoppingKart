@@ -10,4 +10,5 @@ public class ElementIdentifiers {
     public final String password = "//input[@name='password']";
     public final String confirmPassword = "//input[@name='password_confirmation']";
     public final String submit = "//*[@type='submit']";
+
 }
