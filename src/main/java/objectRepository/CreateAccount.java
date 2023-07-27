@@ -1,42 +1,48 @@
-package pageObjects;
+package objectRepository;
 
+import dataProvider.ConfigFileReader;
+import managers.FileReaderManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import elementsLibrary.ElementIdentifiers;
 
 public class CreateAccount {
 
     WebDriver driver;
+    ConfigFileReader configFileReader;
 
     public CreateAccount(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        configFileReader = new ConfigFileReader();
     }
 
-    ElementIdentifiers ei = new ElementIdentifiers();
-    @FindBy(how = How.XPATH, using = ei.createAccount)
+    @FindBy(how = How.XPATH, using = "//a[text()='Create an Account']")
     private WebElement createAccount;
 
-    @FindBy(how = How.XPATH, using = ei.firstName)
+    @FindBy(how = How.XPATH, using = "//input[@name='firstname']")
     private WebElement firstName;
 
-    @FindBy(how = How.XPATH, using = ei.lastName)
+    @FindBy(how = How.XPATH, using = "//input[@name='lastname']")
     private WebElement lastName;
 
-    @FindBy(how = How.XPATH, using = ei.email)
+    @FindBy(how = How.XPATH, using = "//input[@name='email']")
     private WebElement email;
 
-    @FindBy(how = How.XPATH, using = ei.password)
+    @FindBy(how = How.XPATH, using = "//input[@name='password']")
     private WebElement password;
 
-    @FindBy(how = How.XPATH, using = ei.confirmPassword)
+    @FindBy(how = How.XPATH, using = "//input[@name='password_confirmation']")
     private WebElement confirmPassword;
 
-    @FindBy(how = How.XPATH, using = ei.submit)
+    @FindBy(how = How.XPATH, using = "//*[@type='submit']")
     private WebElement submit;
+
+    public void launchURL(){
+        driver.navigate().to(FileReaderManager.getInstance().getConfigReader().getApplicationURL());
+    }
 
     public void createAccount(){
         createAccount.click();
