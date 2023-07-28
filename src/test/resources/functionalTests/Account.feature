@@ -7,8 +7,9 @@ Scenario: Create an account
     When User clicks on create an account
     And Enter first name "Test"
     And Enter last name "user"
-    And Enter email "testuser@test.com"
+    And Enter email "testuser@tst.com"
     And Enter password "Zxcvb@123"
     And Confirm password "Zxcvb@123"
+    And Submit
     Then Account created successfully
     And Browser is closed

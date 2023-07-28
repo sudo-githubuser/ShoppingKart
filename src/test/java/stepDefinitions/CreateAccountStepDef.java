@@ -7,6 +7,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import objectRepository.CreateAccount;
 
+import static org.testng.Assert.assertEquals;
+
 public class CreateAccountStepDef {
 
     TestContext testContext;
@@ -53,9 +55,16 @@ public class CreateAccountStepDef {
         Thread.sleep(4000);
     }
 
+    @And("Submit")
+    public void submit() { createAccount.submit(); }
+
     @Then("Account created successfully")
     public void accountCreatedSuccessfully() {
-        createAccount.submit();
+        System.out.println("Assertion step entered");
+        String actual = createAccount.accountCreationSuccess();
+        System.out.println("Actual result: " + actual);
+        assertEquals(actual, "Thank you for registering with Main Website Store.");
+        System.out.println("Assertion step exited");
     }
 
     @And("Browser is closed")

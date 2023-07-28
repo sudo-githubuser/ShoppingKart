@@ -37,8 +37,11 @@ public class CreateAccount {
     @FindBy(how = How.XPATH, using = "//input[@name='password_confirmation']")
     private WebElement confirmPassword;
 
-    @FindBy(how = How.XPATH, using = "//*[@type='submit']")
+    @FindBy(how = How.XPATH, using = "(//*[@type='submit'])[2]")
     private WebElement submit;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(@class,'message-success success')]//div[1]")
+    private WebElement accountCreationAssert;
 
     public void launchURL(){
         driver.navigate().to(FileReaderManager.getInstance().getConfigReader().getApplicationURL());
@@ -60,10 +63,9 @@ public class CreateAccount {
     public void enterPassword(String pwd){
         password.sendKeys(pwd);
     }
-    public void enterConfirmPassword(String cPwd){
-        confirmPassword.sendKeys(cPwd);
-    }
-    public void submit(){
-        submit.click();
+    public void enterConfirmPassword(String cPwd) { confirmPassword.sendKeys(cPwd); }
+    public void submit() { submit.click(); }
+    public String accountCreationSuccess(){
+        return accountCreationAssert.getText();
     }
 }
