@@ -7,7 +7,7 @@ Scenario: Create an account
     When User clicks on create an account
     And Enter first name "Test"
     And Enter last name "user"
-    And Enter email "testuser@sut.com"
+    And Enter email "testuse@suter.com"
     And Enter password "Zxcvb@123"
     And Confirm password "Zxcvb@123"
     And Submit
