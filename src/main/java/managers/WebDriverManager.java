@@ -24,8 +24,13 @@ public class WebDriverManager {
 		case FIREFOX: driver = new FirefoxDriver();
 			break;
 		case CHROME:
-			System.setProperty(CHROME_DRIVER_PROPERTY, FileReaderManager.getInstance().getConfigReader().getDriverPath());
+			//System.setProperty(CHROME_DRIVER_PROPERTY, FileReaderManager.getInstance().getConfigReader().getDriverPath());
+			/* Added the below lines of code for GitHub action execution */
+			io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--no-sandbox");
+			options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--headless");
 			options.addArguments("--remote-allow-origins=*");
 			driver = new ChromeDriver(options);
 			break;
