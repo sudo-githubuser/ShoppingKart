@@ -32,12 +32,23 @@ public class WebDriverManager {
 			options.addArguments("--disable-dev-shm-usage");
 			options.addArguments("--headless");
 			options.addArguments("--remote-allow-origins=*");
+
+			//options.addArguments("--window-size=1000,1000");
+			options.addArguments("--disable-extensions");
+			options.addArguments("--proxy-server='direct://'");
+			options.addArguments("--proxy-bypass-list=*");
+			options.addArguments("--start-maximized");
+			options.addArguments("--disable-gpu");
+			options.addArguments("--ignore-certificate-errors");
+			options.addArguments("--no-first-run");
+			options.addArguments("--no-default-browser-check");
+			options.addArguments("--test-type");
 			driver = new ChromeDriver(options);
 			break;
 		case INTERNETEXPLORER: driver = new InternetExplorerDriver();
 			break;
 		}
-		if(FileReaderManager.getInstance().getConfigReader().getBrowserWindowSize()) driver.manage().window().maximize();
+		//if(FileReaderManager.getInstance().getConfigReader().getBrowserWindowSize()) driver.manage().window().maximize();
 		
 		driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait());
 		return driver;

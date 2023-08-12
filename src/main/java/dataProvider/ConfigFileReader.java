@@ -63,10 +63,10 @@ public class ConfigFileReader {
         else throw new RuntimeException("Browser Name key value in Configuration.properties is not matched: " + browserName);
     }
 
-    public boolean getBrowserWindowSize(){
-        String windowSize = properties.getProperty("windowMaximize");
-        if(windowSize != null) return Boolean.parseBoolean(windowSize);
-        return true;
-    }
+//    public boolean getBrowserWindowSize(){
+//        String windowSize = properties.getProperty("windowMaximize");
+//        if(windowSize != null) return Boolean.parseBoolean(windowSize);
+//        return true;
+//    }
 
 }

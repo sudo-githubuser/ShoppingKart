@@ -40,8 +40,9 @@ public class CreateAccount {
     @FindBy(how = How.XPATH, using = "(//*[@type='submit'])[2]")
     private WebElement submit;
 
-    @FindBy(how = How.XPATH, using = "//div[contains(@class,'message-success success')]//div[1]")
+    @FindBy(how = How.XPATH, using = "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']")
     private WebElement accountCreationAssert;
+    //div[contains(@class,'message-success success')]//div[1]
 
     public void launchURL(){
         driver.navigate().to(FileReaderManager.getInstance().getConfigReader().getApplicationURL());

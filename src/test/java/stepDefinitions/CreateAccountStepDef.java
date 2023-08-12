@@ -81,7 +81,9 @@ public class CreateAccountStepDef {
     public void submit() { createAccount.submit(); }
 
     @Then("Account created successfully")
-    public void accountCreatedSuccessfully() {
+    public void accountCreatedSuccessfully() throws InterruptedException {
+        System.out.println("Entering accountCreatedSuccessfully page");
+        Thread.sleep(6000);
         String actual = createAccount.accountCreationSuccess();
         System.out.println("Actual result: " + actual);
         assertEquals(actual, "Thank you for registering with Main Website Store.");
