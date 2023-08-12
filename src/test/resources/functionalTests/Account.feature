@@ -5,9 +5,9 @@ Feature: Create Account
 Scenario: Create an account
     Given User is on Home Page
     When User clicks on create an account
-    And Enter first name "Test"
-    And Enter last name "user"
-    And Enter email "euser@ter.com"
+    And Enter first name "Test1"
+    And Enter last name "user1"
+    And Enter email "euser23@com.com"
     And Enter password "Zxcvb@123"
     And Confirm password "Zxcvb@123"
     And Submit

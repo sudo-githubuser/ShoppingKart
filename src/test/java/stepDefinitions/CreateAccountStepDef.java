@@ -82,6 +82,7 @@ public class CreateAccountStepDef {
 
     @Then("Account created successfully")
     public void accountCreatedSuccessfully() {
+        System.out.println("Entering accountCreatedSuccessfully page");
         String actual = createAccount.accountCreationSuccess();
         System.out.println("Actual result: " + actual);
         assertEquals(actual, "Thank you for registering with Main Website Store.");
