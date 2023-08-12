@@ -30,14 +30,24 @@ public class WebDriverManager {
 			ChromeOptions options = new ChromeOptions();
 			//options.addArguments("--no-sandbox");
 			//options.addArguments("--disable-dev-shm-usage");
+			//options.addArguments("--headless");
+			//options.addArguments("--remote-allow-origins=*");
+			options.addArguments("--window-size=1920,1080");
+			options.addArguments("--disable-extensions");
+			options.addArguments("--proxy-server='direct://'");
+			options.addArguments("--proxy-bypass-list=*");
+			options.addArguments("--start-maximized");
 			options.addArguments("--headless");
-			options.addArguments("--remote-allow-origins=*");
+			options.addArguments("--disable-gpu");
+			options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--no-sandbox");
+			options.addArguments("--ignore-certificate-errors");
 			driver = new ChromeDriver(options);
 			break;
 		case INTERNETEXPLORER: driver = new InternetExplorerDriver();
 			break;
 		}
-		if(FileReaderManager.getInstance().getConfigReader().getBrowserWindowSize()) driver.manage().window().maximize();
+		//if(FileReaderManager.getInstance().getConfigReader().getBrowserWindowSize()) driver.manage().window().maximize();
 		
 		driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait());
 		return driver;
