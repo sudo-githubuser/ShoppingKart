@@ -12,7 +12,8 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -22,10 +23,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Install Google Chrome # Using shell script to install Google Chrome
-      run:    |
-              chmod +x ./scripts/InstallChrome.sh
-                          ./scripts/InstallChrome.sh
+    #- name: Install Google Chrome # Using shell script to install Google Chrome
+      #run:    |
+              #chmod +x ./scripts/InstallChrome.sh
+                          #./scripts/InstallChrome.sh
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@v1.2.0
     - name: Build with Maven
       #working-directory: src
       run: mvn -B clean --file pom.xml test
