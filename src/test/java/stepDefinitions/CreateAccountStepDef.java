@@ -1,17 +1,11 @@
 package stepDefinitions;
 
 import cucumber.TestContext;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import managers.PageObjectManager;
-import managers.WebDriverManager;
 import objectRepository.CreateAccount;
-
-import java.io.File;
 
 import static org.testng.Assert.assertEquals;
 
@@ -84,7 +78,7 @@ public class CreateAccountStepDef {
     public void accountCreatedSuccessfully() throws InterruptedException {
         System.out.println("Entering accountCreatedSuccessfully page");
         Thread.sleep(6000);
-        String actual = createAccount.accountCreationSuccess();
+        String actual = createAccount.accountCreationMessage();
         System.out.println("Actual result: " + actual);
         assertEquals(actual, "Thank you for registering with Main Website Store.");
     }
@@ -93,6 +87,16 @@ public class CreateAccountStepDef {
     public void browserIsClosed() {
         System.out.println("Tested successfully");
     }
+
+    @Then("Account not created successfully")
+    public void accountNotCreatedSuccessfully() throws InterruptedException {
+        System.out.println("Entering accountNotCreatedSuccessfully page");
+        Thread.sleep(6000);
+        String actual = createAccount.accountCreationMessage();
+        System.out.println("Actual result: " + actual);
+        assertEquals(actual, "There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.");
+    }
+
 
 //    @After
 //    public void afterScenario(){
