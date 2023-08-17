@@ -66,7 +66,7 @@ public class CreateAccount {
     }
     public void enterConfirmPassword(String cPwd) { confirmPassword.sendKeys(cPwd); }
     public void submit() { submit.click(); }
-    public String accountCreationSuccess(){
+    public String accountCreationMessage(){
         return accountCreationAssert.getText();
     }
 }
